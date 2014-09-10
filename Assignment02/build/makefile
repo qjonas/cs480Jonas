@@ -15,7 +15,7 @@ all: ../bin/Matrix
 ../bin/Matrix: ../src/loader.cpp ../src/main.cpp 
 	$(CC) $(CXXFLAGS) ../src/loader.cpp ../src/main.cpp -o ../bin/Matrix $(LIBS)
 
-make clean: 
+clean: 
 	rm *.o ../bin/Matrix
 
 
