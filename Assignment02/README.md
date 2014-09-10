@@ -6,6 +6,7 @@ Commands:
 's'--> start or stop rotation
 'a'--> reverse direction of rotation
 'esc'--> exit the program
+'Left mouse click'--> switches the rotation of direction 
 
 Menu:
 1 Quit --> exit the program
