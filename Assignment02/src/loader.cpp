@@ -7,13 +7,17 @@
 using namespace std;
 
 
+
+
 loader::loader( const char* uName )
 {
- char* fName = new char[ 200 ];
- char* data = new char[ 2000 ];
+  fName = new char[ 2000 ];
+  data = new char[ 2000 ];
+ char * temp = new char[2000];
+
 
  strcpy( fName, uName );
- char * temp = new char[2000];
+
 
 
  // clear new temp arrays
@@ -26,7 +30,7 @@ fin.clear();
  int i;
     for( i = 0; i < 2000; i++ )
        {
-        temp[i] = data[i] = '\0';
+        fName[i] = temp[i] = data[i] = '\0';
        }
 
  // extract data
@@ -41,18 +45,23 @@ fin.clear();
        strcat( data, temp );
        data[strlen(data)] = '\0';
       }
+
 fin.close();
 
 } // end of function
 
 loader::~loader()
 {
+
  delete[] fName;
  delete[] data;
+
+ fName = data = NULL;
  }
 
 char* loader::getData()
 {
+ 
  return data;
 }
 
