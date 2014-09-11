@@ -30,6 +30,8 @@ GLuint vbo_geometry;// VBO handle for our geometry
 // More Global variables
 bool rotate_flag = false;
 bool rotation_dir = false; // true = clockwise 
+bool rev_flag = false;
+int rotation_spd = 20;
 
 //uniform locations
 GLint loc_mvpmat;// Location of the modelviewprojection matrix in the shader
@@ -179,21 +181,26 @@ void update()
     static float rotate_angle = 0.0;
     float dt = getDT();// if you have anything moving, use dt.
 
-    angle += dt * M_PI/2; //move through 90 degrees a second
+    if( rev_flag )
+      {
+       angle += dt * M_PI/2; //move through 90 degrees a second
+      }
  // rotate fast
   if( rotate_flag )
   {
    if( rotation_dir )
      {
-      rotate_angle -= dt * M_PI * 20;
+      rotate_angle -= dt * M_PI * rotation_spd;
      }
  else
     {
-     rotate_angle += dt * M_PI * 20;
+     rotate_angle += dt * M_PI * rotation_spd;
     }
   }
+
+
        
-    model = glm::translate( glm::mat4(1.0f), glm::vec3(4.0 * sin(angle), 0.0 , 4.0 * cos(angle)));
+   model = glm::translate( glm::mat4(1.0f), glm::vec3(4.0 * sin(angle), 0.0 , 4.0 * cos(angle)));
     model = glm::rotate( model, rotate_angle  , glm::vec3(0.0, 1.0, 0.0));
      
     // Update the state of the scene
@@ -226,9 +233,25 @@ void keyboard(unsigned char key, int x_pos, int y_pos )
        }
     else if( key == 97 )// A
        {
-        //Reverse Direction
+        //Reverse spin Direction
         rotation_dir = !rotation_dir;
        }
+
+    else if( key == 116 ) // T
+      {
+        // Speed up Spin
+           rotation_spd++;
+      }
+    else if( key == 98 ) //B
+      {
+       // Slow Down spin
+           rotation_spd--;
+      }
+    else if( key == 103 ) // G
+      {
+       // start / stop revolution
+          rev_flag = !rev_flag;
+      }
  }
 
 bool initialize()
