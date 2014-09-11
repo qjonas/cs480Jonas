@@ -5,6 +5,9 @@ Commands:
 
 's'--> start or stop rotation
 'a'--> reverse direction of rotation
+'g'--> start or stop revolution
+'t'--> increase rotation speed
+'b'--> decrease rotation speed
 'esc'--> exit the program
 'Left mouse click'--> switches the rotation of direction 
 
