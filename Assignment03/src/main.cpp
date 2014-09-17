@@ -54,7 +54,7 @@ glm::mat4 moon_model;//obj->world each object should have its own model matrix
 glm::mat4 view;//world->eye
 glm::mat4 projection;//eye->clip
 glm::mat4 mvp;//premultiplied modelviewprojection
-glm::mat4 mvp1;//premultiplied modelviewprojection
+
 
 //--GLUT Callbacks
 void render();
@@ -428,11 +428,6 @@ bool initialize()
     GLuint fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
 
 
-
-    //--Geometry done
-
-  //  GLuint vertex_shader1 = glCreateShader(GL_VERTEX_SHADER);
-  //  GLuint fragment_shader1 = glCreateShader(GL_FRAGMENT_SHADER);
 
 
     //Shader Sources
