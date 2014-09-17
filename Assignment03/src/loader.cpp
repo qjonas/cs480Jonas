@@ -12,7 +12,7 @@ loader::loader( const char* uName )
  char* fName = new char[ 200 ];
  char* data = new char[ 2000 ];
 
- strcopy( fName, uName );
+ strcpy( fName, uName );
  char * temp = new char[2000];
 
 
@@ -48,7 +48,7 @@ fin.close();
 loader::~loader()
 {
  delete[] fName;
- delete[] data:
+ delete[] data;
  }
 
 char* loader::getData()
