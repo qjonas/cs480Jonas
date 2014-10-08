@@ -1,0 +1,7 @@
+varrying vec2 tex_coords;
+uniform sampler2D gsampler;
+void main(void){
+gl_FragColor = texture2D(gSampler, tex_coords.xy);
+}
+
+
